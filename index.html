@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Betel Solutions — Excelência Digital · Sistemas Conectados</title>
+<meta name="description" content="Desenvolvimento de softwares, sites e aplicativos sob medida. Sistemas conectados, excelência digital." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #f7fafc;
+    --bg-soft: #eef4f8;
+    --ink: #0a1f33;
+    --ink-soft: #2a4a66;
+    --ink-mute: #6b8196;
+    --line: rgba(10, 31, 51, 0.08);
+    --line-strong: rgba(10, 31, 51, 0.16);
+
+    --brand-deep: #0b3a5b;
+    --brand: #1f6d9e;
+    --brand-mid: #2aa5c4;
+    --brand-light: #5ed3d8;
+    --brand-glow: #8fe9e8;
+
+    --grad: linear-gradient(135deg, #0b3a5b 0%, #1f6d9e 35%, #2aa5c4 70%, #5ed3d8 100%);
+    --grad-soft: linear-gradient(135deg, rgba(11,58,91,0.08) 0%, rgba(94,211,216,0.12) 100%);
+
+    --display: 'Sora', system-ui, sans-serif;
+    --body: 'Manrope', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--body);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── Ambient grid background ─── */
+  .ambient {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+
+  .orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .orb-1 { width: 520px; height: 520px; background: radial-gradient(circle, #5ed3d8, transparent 70%); top: -150px; right: -100px; }
+  .orb-2 { width: 620px; height: 620px; background: radial-gradient(circle, #1f6d9e, transparent 70%); bottom: -200px; left: -150px; opacity: 0.35; }
+
+  main, nav, footer { position: relative; z-index: 2; }
+
+  /* ─── Navigation ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(247, 250, 252, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease, padding 0.3s ease;
+    z-index: 100;
+  }
+  nav.scrolled { border-bottom-color: var(--line); padding: 14px 48px; }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .brand-mark {
+    width: 68px; height: 68px;
+    display: grid; place-items: center;
+  }
+  .brand-mark svg { width: 100%; height: 100%; }
+  .brand strong { font-weight: 700; }
+  .brand span { font-weight: 400; color: var(--brand); }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px; left: 0;
+    width: 0; height: 1.5px;
+    background: var(--grad);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    padding: 10px 22px;
+    background: var(--ink);
+    color: white;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.88rem;
+    transition: all 0.3s;
+    border: 1px solid var(--ink);
+  }
+  .nav-cta:hover {
+    background: var(--brand-deep);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(11,58,91,0.25);
+  }
+
+  .nav-toggle { display: none; }
+
+  /* ─── Hero ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 48px 80px;
+    position: relative;
+  }
+
+  .hero-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+    letter-spacing: 0.02em;
+  }
+  .eyebrow-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--brand-mid);
+    box-shadow: 0 0 0 4px rgba(42, 165, 196, 0.2);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(42, 165, 196, 0.2); }
+    50% { box-shadow: 0 0 0 8px rgba(42, 165, 196, 0); }
+  }
+
+  h1.hero-title {
+    font-family: var(--display);
+    font-size: clamp(2.6rem, 5.8vw, 4.8rem);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+  h1.hero-title .grad {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+  h1.hero-title em {
+    font-style: normal;
+    font-weight: 300;
+    color: var(--ink-soft);
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 520px;
+    margin-bottom: 40px;
+    line-height: 1.65;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    padding: 16px 32px;
+    background: var(--ink);
+    color: white;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--ink);
+  }
+  .btn-primary:hover {
+    background: var(--brand-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(11,58,91,0.3);
+  }
+  .btn-primary svg { transition: transform 0.3s; }
+  .btn-primary:hover svg { transform: translateX(4px); }
+
+  .btn-ghost {
+    padding: 16px 28px;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .btn-ghost:hover { color: var(--brand); }
+
+  /* Hero visual — animated network node (echoing the logo) */
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 1;
+    max-width: 540px;
+    justify-self: center;
+    width: 100%;
+  }
+  .hero-visual svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 24px 60px rgba(31, 109, 158, 0.25));
+  }
+
+  .hero-stats {
+    position: absolute;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px 22px;
+    font-family: var(--display);
+    box-shadow: 0 12px 40px rgba(10,31,51,0.08);
+    backdrop-filter: blur(10px);
+  }
+  .hero-stats strong {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+  }
+  .hero-stats span {
+    font-family: var(--body);
+    font-size: 0.78rem;
+    color: var(--ink-mute);
+    font-weight: 500;
+  }
+  .stat-1 { top: 8%; left: -8%; animation: float 6s ease-in-out infinite; }
+  .stat-2 { bottom: 12%; right: -6%; animation: float 6s ease-in-out infinite 3s; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+
+  /* ─── Section commons ─── */
+  section { padding: 120px 48px; position: relative; }
+
+  .container { max-width: 1280px; margin: 0 auto; }
+
+  .section-head {
+    max-width: 760px;
+    margin-bottom: 72px;
+  }
+  .section-tag {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--brand);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-tag::before {
+    content: '';
+    width: 32px; height: 1.5px;
+    background: var(--grad);
+  }
+  h2.section-title {
+    font-family: var(--display);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  h2.section-title em {
+    font-style: normal;
+    color: var(--ink-mute);
+    font-weight: 300;
+  }
+  .section-lead {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+
+  /* ─── Services ─── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  .service {
+    background: white;
+    padding: 44px 38px;
+    position: relative;
+    transition: background 0.4s;
+    cursor: default;
+    overflow: hidden;
+  }
+  .service::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--grad-soft);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+  }
+  .service:hover::before { opacity: 1; }
+
+  .service-icon {
+    width: 54px; height: 54px;
+    border-radius: 14px;
+    background: var(--grad);
+    display: grid;
+    place-items: center;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.4s;
+  }
+  .service:hover .service-icon { transform: scale(1.08) rotate(-4deg); }
+  .service-icon svg { width: 26px; height: 26px; stroke: white; }
+
+  .service h3 {
+    font-family: var(--display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .service p {
+    color: var(--ink-soft);
+    font-size: 0.96rem;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+  .service-number {
+    position: absolute;
+    top: 32px; right: 36px;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--ink-mute);
+    font-weight: 500;
+  }
+
+  /* ─── Process ─── */
+  .process {
+    background: var(--ink);
+    color: white;
+    border-radius: 32px;
+    padding: 80px 48px;
+    margin: 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .process::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(94,211,216,0.18), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(31,109,158,0.25), transparent 45%);
+    pointer-events: none;
+  }
+  .process .container { position: relative; z-index: 1; }
+
+  .process h2 { color: white; }
+  .process h2 em { color: rgba(255,255,255,0.4); }
+  .process .section-lead { color: rgba(255,255,255,0.7); }
+  .process .section-tag { color: var(--brand-light); }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 64px;
+  }
+  .step {
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    position: relative;
+  }
+  .step-num {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--brand-light);
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+  .step h4 {
+    font-family: var(--display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    margin-bottom: 10px;
+  }
+  .step p {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+  }
+
+  /* ─── Why us / stats ─── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .why-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .why-item {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .why-item:last-child { border-bottom: none; }
+  .why-check {
+    flex-shrink: 0;
+    width: 40px; height: 40px;
+    border-radius: 12px;
+    background: var(--grad-soft);
+    display: grid; place-items: center;
+    color: var(--brand);
+  }
+  .why-check svg { width: 18px; height: 18px; stroke-width: 2.5; }
+  .why-item h4 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .why-item p { color: var(--ink-soft); font-size: 0.94rem; }
+
+  /* ─── CTA ─── */
+  .cta {
+    text-align: center;
+    padding: 140px 48px;
+  }
+  .cta .container { max-width: 860px; }
+  .cta h2 {
+    font-family: var(--display);
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    margin-bottom: 24px;
+  }
+  .cta h2 .grad {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .cta p {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    margin-bottom: 40px;
+  }
+
+  /* ─── Footer ─── */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.7);
+    padding: 72px 48px 32px;
+  }
+  .footer-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    gap: 56px;
+    padding-bottom: 56px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-brand {
+    font-family: var(--display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .footer-tag {
+    font-size: 0.9rem;
+    max-width: 280px;
+    margin-bottom: 20px;
+    color: rgba(255,255,255,0.55);
+  }
+  .footer-col h5 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: white;
+    margin-bottom: 20px;
+    letter-spacing: -0.005em;
+  }
+  .footer-col a {
+    display: block;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 6px 0;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--brand-light); }
+
+  .footer-bottom {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.45);
+    font-family: var(--mono);
+  }
+
+  /* ─── Scroll reveal ─── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 960px) {
+    nav { padding: 16px 24px; }
+    nav.scrolled { padding: 12px 24px; }
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .nav-toggle { display: inline-flex; }
+
+    .hero { padding: 120px 24px 60px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 60px; }
+    .hero-visual { max-width: 400px; }
+    .stat-1 { left: -4%; } .stat-2 { right: -2%; }
+
+    section { padding: 80px 24px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .process { margin: 0 24px; padding: 60px 28px; border-radius: 24px; }
+    .steps { grid-template-columns: 1fr 1fr; gap: 28px; }
+    .why-grid { grid-template-columns: 1fr; gap: 48px; }
+    .cta { padding: 100px 24px; }
+    footer { padding: 56px 24px 24px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    .hero-ctas { flex-direction: column; align-items: stretch; }
+    .btn-primary, .btn-ghost { justify-content: center; }
+  }
+
+  @media (max-width: 520px) {
+    .steps { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ─── Real logo integration ─── */
+  .brand-mark svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+  }
+  .footer-mark { width: 38px; height: 38px; }
+
+  /* Hero logo stage with orbital rings */
+  .logo-stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+  }
+  .logo-rings {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    animation: spin-slow 60s linear infinite;
+  }
+  .logo-rings .ring-2 { animation: counter-spin 45s linear infinite; transform-origin: center; }
+  .logo-rings .orbit-dots { animation: spin-slow 30s linear infinite; transform-origin: center; }
+
+  @keyframes spin-slow { to { transform: rotate(360deg); } }
+  @keyframes counter-spin { to { transform: rotate(-360deg); } }
+
+  .logo-main {
+    position: relative;
+    width: 62%;
+    height: auto;
+    z-index: 2;
+    filter: drop-shadow(0 20px 50px rgba(31, 109, 158, 0.35)) drop-shadow(0 8px 20px rgba(94, 211, 216, 0.25));
+    animation: logo-float 6s ease-in-out infinite;
+  }
+  @keyframes logo-float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-12px) scale(1.02); }
+  }
+
+  /* The SVG counter-spin trick — apply to group instead */
+  .logo-rings .ring-2, .logo-rings .orbit-dots {
+    transform-box: fill-box;
+    transform-origin: 250px 250px;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Reusable logo symbol -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="betelGrad" x1="200" y1="900" x2="900" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1a5a85"/>
+      <stop offset="55%" stop-color="#2898c6"/>
+      <stop offset="100%" stop-color="#4bddd9"/>
+    </linearGradient>
+  </defs>
+  <symbol id="betel-logo" viewBox="0 0 1024 1024">
+    <path fill="url(#betelGrad)" d="M457.000000,741.189575 C428.340088,741.174500 400.180145,741.163940 372.020233,741.135437 C369.167389,741.132507 366.613739,741.313171 364.183105,743.449463 C356.007202,750.635376 345.127014,751.946899 335.851593,747.040955 C325.935120,741.796021 321.932312,733.140869 322.233551,722.265381 C322.400879,716.224121 324.527832,710.876221 328.723236,706.447693 C330.634064,704.430725 331.688324,702.242004 331.623322,699.308350 C330.427002,645.333557 331.167511,591.350464 330.999969,537.370850 C330.979309,530.707825 330.250885,530.190308 323.398132,530.441895 C301.423401,531.248535 279.439270,530.921143 257.457947,530.842529 C254.934418,530.833496 252.237732,530.746887 251.170883,527.838745 C250.027634,524.722351 252.315369,522.837158 254.178894,520.986755 C272.622223,502.673157 291.107697,484.402008 309.570496,466.107971 C338.800812,437.144867 367.991119,408.141296 397.256622,379.213776 C433.867340,343.025818 470.522156,306.882416 507.198242,270.760651 C512.362793,265.674164 513.394714,265.753387 518.617126,270.888123 C547.010315,298.804382 575.421143,326.702789 603.754761,354.679413 C657.219360,407.470490 710.637207,460.308899 764.066956,513.135254 C767.028503,516.063354 769.960693,519.023560 772.830627,522.040955 C774.470154,523.764709 775.920898,525.642151 774.668213,528.268738 C773.338013,531.057800 770.780029,531.077026 768.249817,531.079895 C746.922363,531.104065 725.594849,531.133972 704.267395,531.115662 C695.413330,531.108093 694.581482,532.455566 694.679138,541.280457 C694.990967,569.435791 695.009399,597.595581 694.953613,625.753296 C694.906372,649.575012 694.648621,673.396851 694.353394,697.216980 C694.307434,700.926147 695.398438,703.753601 697.758850,706.681763 C711.012573,723.123535 702.477966,746.109192 681.756287,749.797913 C674.351257,751.116089 667.482056,749.076660 661.735535,744.194580 C659.142090,741.991272 656.512329,741.157837 653.142883,741.167664 C618.151672,741.269470 583.160034,741.237122 548.168518,741.237915 C540.448669,741.238098 539.641357,740.404907 539.651184,732.617615 C539.657898,727.285583 539.754639,721.950134 539.594788,716.622620 C539.458923,712.096497 541.419495,710.518860 545.921997,710.538025 C577.913696,710.674316 609.906128,710.624695 641.898376,710.632629 C642.898071,710.632874 643.898438,710.635254 644.897339,710.601807 C646.560364,710.546204 648.428711,710.683716 649.371033,709.012085 C650.381470,707.219666 648.984070,705.866089 647.990173,704.560791 C633.459778,685.477112 618.896545,666.418396 604.396851,647.311523 C602.219116,644.441833 599.943298,643.239685 595.982849,643.544495 C588.260132,644.138916 581.736755,640.585266 576.482056,635.087463 C574.149536,632.646973 571.757019,631.850525 568.511047,632.203308 C560.418213,633.082886 552.289856,633.638000 544.198425,634.529236 C540.415344,634.945862 537.132385,636.347046 535.837402,640.545166 C535.409241,641.933044 534.596313,643.431335 533.510986,644.348511 C528.177795,648.855164 528.099670,654.765076 528.146973,661.078247 C528.324280,684.737488 528.200867,708.399231 528.155457,732.059937 C528.139587,740.339478 527.244141,741.203430 518.982361,741.205017 C498.488251,741.208923 477.994110,741.195496 457.000000,741.189575 M663.519531,458.980347 C619.122864,415.304962 574.726196,371.629578 530.329590,327.954193 C529.848694,328.270142 529.367859,328.586090 528.886963,328.902069 C528.886963,384.237152 528.886963,439.572266 528.886963,495.663635 C530.363159,494.732086 531.128784,494.407532 531.690796,493.870117 C539.274963,486.617737 546.792297,479.294952 554.418396,472.087128 C556.573303,470.050415 557.238220,467.661835 557.033447,464.878357 C556.529846,458.032928 557.892944,451.614197 561.474121,445.731201 C563.114990,443.035645 562.895325,440.459137 561.649292,437.660217 C557.179810,427.619904 552.851440,417.516968 548.428589,407.455750 C546.286133,402.581970 543.674194,397.877869 541.956543,392.863434 C539.850769,386.715942 543.695740,380.960083 550.000977,379.889740 C554.834961,379.069092 558.548950,381.590546 561.248474,387.780762 C567.039612,401.060028 572.755432,414.372162 578.493164,427.674652 C579.706909,430.488556 581.060303,432.795959 584.576172,433.588867 C600.082031,437.085876 605.604492,443.140015 607.693481,458.745819 C608.108276,461.844635 609.320557,463.928162 612.031067,465.493103 C628.759888,475.151917 645.572876,484.677795 662.056152,494.742096 C668.213867,498.501801 674.447083,500.277466 681.456848,499.584595 C686.458252,499.090210 691.427490,499.565338 696.411987,499.643280 C698.176208,499.670868 700.416565,500.312195 701.351135,498.256989 C702.333862,496.096008 700.187988,495.040741 698.942871,493.813416 C687.316589,482.353973 675.665222,470.920044 663.519531,458.980347 M403.904175,418.411530 C376.769012,444.973145 349.633850,471.534790 322.498688,498.096405 C322.795166,498.573975 323.091644,499.051544 323.388092,499.529114 C333.965912,499.972870 344.552094,500.092560 355.140137,499.461823 C356.205048,499.398376 357.257263,498.551117 358.251709,497.960388 C376.436981,487.158081 394.585663,476.293701 412.817719,465.571014 C415.714569,463.867279 416.954041,461.792603 417.196136,458.410950 C418.134857,445.298737 426.350128,435.747223 439.181885,432.656586 C442.011566,431.975098 444.015991,430.710907 445.208160,428.027496 C447.911804,421.941681 450.682953,415.885590 453.463531,409.834351 C457.357117,401.360992 461.159851,392.842651 465.236572,384.457855 C468.462585,377.822754 474.287750,376.623688 479.975830,381.112946 C484.053772,384.331543 484.832123,389.500031 482.181488,395.136902 C475.733765,408.848877 469.386139,422.608490 462.839874,436.273041 C461.546356,438.973145 461.510223,441.070343 463.162598,443.649261 C467.330566,450.154358 469.433319,457.241516 467.889954,465.054230 C467.350952,467.782684 468.242828,469.895844 470.222443,471.768005 C476.756927,477.947754 483.160461,484.268524 489.786804,490.347046 C491.626770,492.034943 492.919586,494.715607 495.880951,494.999207 C497.821320,490.492004 497.723816,332.124664 495.471222,328.093719 C465.012482,358.134613 434.711304,388.020111 403.904175,418.411530 M488.241150,610.126953 C490.707977,610.753967 493.075653,612.526245 495.617432,609.983459 C507.285278,598.311035 524.630432,602.230957 532.604431,612.694092 C534.117188,614.679138 536.036743,615.794189 538.640259,615.451782 C547.536255,614.281616 556.431335,613.102966 565.334656,611.990601 C567.591003,611.708740 569.636841,611.281860 570.448242,608.779236 C571.299805,606.152649 570.719727,604.026062 568.745911,601.974243 C553.966553,586.611511 539.260559,571.178223 524.546021,555.753174 C522.983337,554.115051 521.412842,552.866150 518.886292,553.580261 C512.446106,555.400635 506.340179,554.208801 500.547974,551.135132 C498.551056,550.075439 496.833435,550.147095 494.968781,551.429993 C478.372467,562.848389 461.736145,574.208679 445.156830,585.651611 C443.564728,586.750488 441.510284,587.952026 441.775024,590.252563 C442.071594,592.829712 444.514862,593.301270 446.528351,594.074158 C460.201843,599.322998 473.870575,604.584229 488.241150,610.126953 M637.175903,580.668762 C631.766907,587.207092 626.379639,593.763611 620.938599,600.275146 C618.655518,603.007385 617.517456,605.887451 618.795715,609.470947 C620.795227,615.076233 620.340027,620.755371 618.002747,626.035522 C616.447327,629.549500 617.337280,631.965149 619.416931,634.664185 C630.589417,649.164246 641.675842,663.730652 652.819580,678.252930 C655.900818,682.268494 659.076843,686.211365 662.209412,690.187561 C662.546509,690.045532 662.883606,689.903503 663.220703,689.761414 C663.220703,643.916199 663.220703,598.070984 663.220703,552.225769 C662.747314,552.021545 662.273987,551.817322 661.800598,551.613098 C652.749207,560.229675 645.934631,570.839905 637.175903,580.668762 M603.073730,586.979858 C606.123779,588.807312 607.210388,586.141235 608.599060,584.461975 C618.882324,572.027649 629.130859,559.564636 639.367798,547.092102 C645.382263,539.764160 651.538818,532.542419 657.289124,525.011475 C661.910461,518.959229 661.340942,517.106567 654.907349,513.312622 C649.175354,509.932404 643.432678,506.570251 637.689758,503.208557 C625.924988,496.321869 614.197144,489.370544 602.369812,482.592926 C597.787231,479.966949 594.161926,481.938812 593.511658,487.184052 C593.330139,488.647919 593.484497,490.175781 593.647461,491.656403 C594.716797,501.373016 596.004944,511.068848 596.894653,520.801331 C598.891724,542.646912 599.993713,564.571350 603.073730,586.979858 M466.497833,642.948303 C472.609436,639.163330 479.119965,635.960999 484.604431,631.760925 C483.811096,629.335144 482.564514,628.839600 481.324463,628.335999 C466.984497,622.512939 452.419434,617.301086 437.802246,612.224792 C435.335907,611.368347 433.444977,611.777710 431.369812,613.372742 C427.368378,616.448425 422.903198,618.735413 417.736877,619.023071 C415.077728,619.171021 413.513000,620.442200 412.307343,622.698853 C399.994110,645.744934 387.616577,668.756653 375.321838,691.812500 C374.627319,693.114929 373.168304,694.442505 374.558685,696.760864 C405.043030,678.913757 435.450958,661.111389 466.497833,642.948303 M434.151306,684.722717 C420.205719,692.862671 406.260162,701.002686 391.073669,709.866943 C393.544464,710.332336 394.331512,710.609497 395.118835,710.610291 C427.606750,710.642883 460.094757,710.620667 492.582550,710.700623 C496.541504,710.710388 497.792206,708.921082 497.763702,705.203979 C497.637360,688.711121 497.712616,672.216675 497.591827,655.723694 C497.542480,648.985474 496.020538,648.162354 490.251343,651.561951 C471.747162,662.466125 453.273926,673.422791 434.151306,684.722717 M582.370483,578.084839 C580.597961,561.109253 578.712524,544.144409 577.091553,527.154358 C575.955994,515.252563 575.240662,503.311096 574.192627,491.400116 C573.996582,489.172180 573.891357,486.440155 571.126526,485.609863 C568.663574,484.870209 567.133362,486.823364 565.615845,488.314545 C556.836670,496.941406 548.139221,505.651947 539.311768,514.228882 C537.095642,516.382141 536.112976,518.415344 536.861389,521.684387 C537.860779,526.049438 538.151489,530.651611 536.449646,534.968140 C535.363892,537.722107 536.087219,539.538086 538.032349,541.591370 C551.185059,555.475525 564.212341,569.478455 577.318481,583.406921 C578.486450,584.648132 579.329346,586.617310 581.762329,586.091858 C583.464661,583.868530 582.412903,581.328613 582.370483,578.084839 M418.391724,533.043823 C421.559540,518.623291 424.735931,504.204559 427.886658,489.780273 C428.403351,487.414703 429.873901,484.690125 427.474823,482.814331 C425.031982,480.904388 422.747864,482.993744 420.656616,484.220490 C403.305176,494.399292 386.009003,504.672668 368.623718,514.793091 C365.042328,516.877930 365.021881,518.831543 367.561859,521.816711 C379.737885,536.126709 391.797119,550.536011 403.903564,564.905273 C405.072998,566.293335 406.130066,567.990051 408.334198,567.565369 C410.808502,567.088501 411.102142,564.886230 411.540222,562.990234 C413.783051,553.283630 415.942963,543.557800 418.391724,533.043823 M391.426819,588.299744 C393.605194,583.537292 391.922668,579.880676 388.624664,576.189148 C380.981415,567.633850 373.664642,558.787415 366.162354,550.104980 C365.232178,549.028503 364.536194,547.545593 361.392944,547.128845 C362.779327,589.329956 360.919281,631.302002 362.316467,673.322754 C373.960632,653.200684 384.846436,633.018555 395.771027,612.857422 C396.832550,610.898438 396.047791,609.413818 395.034393,607.797791 C391.438354,602.063110 390.345886,595.797852 391.426819,588.299744 M488.169708,521.129517 C488.951752,518.946289 489.016632,516.847412 487.199158,515.116577 C476.949799,505.355743 466.757660,495.532562 456.373260,485.917206 C453.457672,483.217529 450.001709,484.376129 448.467682,488.145905 C447.907806,489.521881 447.622803,491.017578 447.287384,492.475891 C441.779205,516.426331 436.272369,540.377075 430.803558,564.336487 C430.342407,566.356812 429.459167,568.505249 431.270569,570.423340 C433.017822,570.689758 434.192047,569.664001 435.385376,568.821472 C449.530151,558.834412 463.351471,548.343384 477.928070,539.034241 C484.732849,534.688477 488.262299,529.782715 488.169708,521.129517 z"/>
+  </symbol>
+</svg>
+
+
+<div class="ambient"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<!-- ─── NAV ─── -->
+<nav id="nav">
+  <a href="#top" class="brand">
+    <span class="brand-mark"><svg viewBox="0 0 1024 1024"><use href="#betel-logo"/></svg></span>
+    <span><strong>Betel</strong> <span>Solutions</span></span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#services">Serviços</a></li>
+    <li><a href="#process">Processo</a></li>
+    <li><a href="#why">Por que nós</a></li>
+    <li><a href="#contact">Contato</a></li>
+  </ul>
+
+  <a href="#contact" class="nav-cta">Fale conosco</a>
+  <a href="#contact" class="nav-cta nav-toggle">Contato</a>
+</nav>
+
+<main id="top">
+
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow reveal">
+          <span class="eyebrow-dot"></span>
+          <span>DISPONÍVEL PARA NOVOS PROJETOS · 2026</span>
+        </div>
+
+        <h1 class="hero-title reveal">
+          Construímos <span class="grad">sistemas<br/>conectados</span> que <em>fazem seu negócio crescer.</em>
+        </h1>
+
+        <p class="hero-sub reveal">
+          Software sob medida, sites performáticos e aplicativos que realmente entregam resultado. Tecnologia pensada para pessoas — com a excelência que o seu produto merece.
+        </p>
+
+        <div class="hero-ctas reveal">
+          <a href="#contact" class="btn-primary">
+            Iniciar um projeto
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#services" class="btn-ghost">
+            Ver serviços
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <!-- Orbital rings + real logo -->
+        <div class="logo-stage">
+          <svg class="logo-rings" viewBox="0 0 500 500" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="ring-grad" x1="0" y1="0" x2="500" y2="500">
+                <stop offset="0%" stop-color="#1f6d9e" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#5ed3d8" stop-opacity="0.6"/>
+              </linearGradient>
+              <radialGradient id="logo-glow">
+                <stop offset="0%" stop-color="#5ed3d8" stop-opacity="0.45"/>
+                <stop offset="70%" stop-color="#1f6d9e" stop-opacity="0.08"/>
+                <stop offset="100%" stop-color="#1f6d9e" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <circle cx="250" cy="250" r="220" fill="url(#logo-glow)"/>
+            <circle class="ring ring-1" cx="250" cy="250" r="180" stroke="url(#ring-grad)" stroke-width="1" stroke-dasharray="2 8"/>
+            <circle class="ring ring-2" cx="250" cy="250" r="215" stroke="url(#ring-grad)" stroke-width="1" stroke-dasharray="1 6"/>
+            <circle class="ring ring-3" cx="250" cy="250" r="245" stroke="url(#ring-grad)" stroke-width="1" stroke-dasharray="1 14"/>
+            <!-- orbit dots -->
+            <g class="orbit-dots" fill="#2aa5c4">
+              <circle cx="430" cy="250" r="4"/>
+              <circle cx="250" cy="70" r="3"/>
+              <circle cx="70" cy="250" r="3.5"/>
+            </g>
+          </svg>
+
+          <svg class="logo-main" viewBox="0 0 1024 1024" aria-label="Betel Solutions"><use href="#betel-logo"/></svg>
+        </div>
+
+        <div class="hero-stats stat-1">
+          <strong>100%</strong>
+          <span>Código sob medida</span>
+        </div>
+        <div class="hero-stats stat-2">
+          <strong>24/7</strong>
+          <span>Suporte dedicado</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES ─── -->
+  <section id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-tag">Serviços</div>
+        <h2 class="section-title">Tudo o que sua empresa precisa <em>num só lugar.</em></h2>
+        <p class="section-lead">Da ideia ao deploy: desenvolvemos soluções digitais ponta a ponta, com arquitetura sólida, design cuidadoso e performance de verdade.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service reveal">
+          <div class="service-number">01</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="8 9 3 14 8 19"/>
+              <polyline points="16 9 21 14 16 19"/>
+              <line x1="13" y1="5" x2="11" y2="23"/>
+            </svg>
+          </div>
+          <h3>Software sob medida</h3>
+          <p>Sistemas corporativos, ERPs, CRMs e plataformas internas que se moldam ao seu processo — não o contrário. Código limpo, escalável e documentado.</p>
+        </article>
+
+        <article class="service reveal">
+          <div class="service-number">02</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3>Sites & Landing Pages</h3>
+          <p>Sites institucionais, portfólios e landing pages que convertem. Otimizados para performance, SEO e experiência do usuário em qualquer tela.</p>
+        </article>
+
+        <article class="service reveal">
+          <div class="service-number">03</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+              <line x1="12" y1="18" x2="12.01" y2="18"/>
+            </svg>
+          </div>
+          <h3>Aplicativos Mobile</h3>
+          <p>Apps nativos e híbridos para iOS e Android. Interfaces intuitivas, sincronização em tempo real e integração com qualquer backend — sem complicação.</p>
+        </article>
+
+        <article class="service reveal">
+          <div class="service-number">04</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <h3>Integrações & APIs</h3>
+          <p>Conectamos seus sistemas: pagamentos, logística, WhatsApp, ERPs, IA. Criamos APIs robustas ou integramos as que você já usa de forma limpa.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROCESS ─── -->
+  <section id="process" style="padding-left: 0; padding-right: 0;">
+    <div class="process">
+      <div class="container">
+        <div class="section-head reveal" style="max-width: 680px;">
+          <div class="section-tag">Processo</div>
+          <h2 class="section-title">Clareza do briefing <em>ao deploy.</em></h2>
+          <p class="section-lead">Trabalhamos em ciclos curtos e transparentes. Você acompanha cada decisão, cada avanço, cada entrega.</p>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step-num">01 · DESCOBERTA</div>
+            <h4>Entender o problema</h4>
+            <p>Conversas, benchmarks e mapeamento do que realmente importa para o seu negócio.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">02 · DESENHO</div>
+            <h4>Planejar a solução</h4>
+            <p>Arquitetura, fluxos e protótipos validados antes de escrever qualquer linha de código.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">03 · CONSTRUÇÃO</div>
+            <h4>Desenvolver em ciclos</h4>
+            <p>Sprints com entregas frequentes, testes e feedback contínuo — sem surpresas no final.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">04 · EVOLUÇÃO</div>
+            <h4>Suporte & crescimento</h4>
+            <p>Deploy, monitoramento e melhorias contínuas. Seu produto vivo, atualizado e confiável.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHY US ─── -->
+  <section id="why">
+    <div class="container">
+      <div class="why-grid">
+        <div class="reveal">
+          <div class="section-tag">Por que Betel</div>
+          <h2 class="section-title">Parceria técnica, <em>não apenas entrega.</em></h2>
+          <p class="section-lead">Mais do que fornecedor: atuamos como um time de tecnologia dentro da sua empresa — pensando estratégia, não só executando tarefas.</p>
+        </div>
+
+        <div class="why-list">
+          <div class="why-item reveal">
+            <div class="why-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Código que escala</h4>
+              <p>Arquitetura preparada para crescer com o seu negócio — do MVP aos milhões de requisições.</p>
+            </div>
+          </div>
+
+          <div class="why-item reveal">
+            <div class="why-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Comunicação transparente</h4>
+              <p>Você sabe exatamente o que estamos fazendo, por quê, e o que vem depois. Sempre.</p>
+            </div>
+          </div>
+
+          <div class="why-item reveal">
+            <div class="why-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Prazos realistas, entregas reais</h4>
+              <p>Estimativas honestas e compromisso com o deadline. Sem promessas inflacionadas.</p>
+            </div>
+          </div>
+
+          <div class="why-item reveal">
+            <div class="why-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Suporte que não desaparece</h4>
+              <p>Produto entregue não é projeto encerrado. Acompanhamento, evolução e ajustes continuam.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section class="cta" id="contact">
+    <div class="container reveal">
+      <h2>Tem uma ideia? <span class="grad">Vamos construir juntos.</span></h2>
+      <p>Conte o que você precisa — respondemos em até 24h com uma proposta inicial, sem compromisso.</p>
+      <div class="hero-ctas" style="justify-content: center;">
+        <a href="mailto:betelsolutions@gmail.com" class="btn-primary">
+          betelsolutions@gmail.com
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="https://wa.me/" class="btn-ghost">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+          Chamar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <span class="brand-mark footer-mark"><svg viewBox="0 0 1024 1024"><use href="#betel-logo"/></svg></span>
+        Betel Solutions
+      </div>
+      <p class="footer-tag">Excelência Digital · Sistemas Conectados. Desenvolvimento de software, sites e aplicativos para empresas que querem crescer.</p>
+    </div>
+
+    <div class="footer-col">
+      <h5>Serviços</h5>
+      <a href="#services">Software sob medida</a>
+      <a href="#services">Sites & Landing</a>
+      <a href="#services">Aplicativos</a>
+      <a href="#services">Integrações</a>
+    </div>
+
+    <div class="footer-col">
+      <h5>Empresa</h5>
+      <a href="#process">Processo</a>
+      <a href="#why">Por que nós</a>
+      <a href="#contact">Contato</a>
+    </div>
+
+    <div class="footer-col">
+      <h5>Contato</h5>
+      <a href="mailto:betelsolutions@gmail.com">betelsolutions@gmail.com</a>
+      <a href="https://wa.me/5585991502075">WhatsApp</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 BETEL SOLUTIONS · TODOS OS DIREITOS RESERVADOS</span>
+    <span>FEITO NO BRASIL</span>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Stagger reveal animations for grouped items
+  document.querySelectorAll('.services-grid .reveal, .steps .reveal, .why-list .reveal').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 80}ms`;
+  });
+</script>
+
+</body>
+</html>
