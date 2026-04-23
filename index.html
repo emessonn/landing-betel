@@ -69,8 +69,8 @@
     z-index: 0;
     pointer-events: none;
   }
-  .orb-1 { width: 520px; height: 520px; background: radial-gradient(circle, #5ed3d8, transparent 70%); top: -150px; right: -100px; }
-  .orb-2 { width: 620px; height: 620px; background: radial-gradient(circle, #1f6d9e, transparent 70%); bottom: -200px; left: -150px; opacity: 0.35; }
+  .orb-1 { width: 520px; height: 520px; background: radial-gradient(circle, #5ed3d8, transparent 70%); top: -150px; right: -100px; opacity: 0.28; }
+  .orb-2 { width: 620px; height: 620px; background: radial-gradient(circle, #1f6d9e, transparent 70%); bottom: -200px; left: -150px; opacity: 0.2; }
 
   main, nav, footer { position: relative; z-index: 2; }
 
@@ -946,7 +946,7 @@
     animation: float 6s ease-in-out infinite 3s;
     color: var(--brand-deep);
   }
-  .badge-2 svg { color: #f59e0b; fill: #fef3c7; }
+  .badge-2 svg { color: #22c55e; }
 
   /* ─── Services grid: 3 columns (6 cards) with featured styling ─── */
   #services .services-grid {
@@ -965,21 +965,8 @@
     background: var(--grad);
     z-index: 2;
   }
-  .service-badge {
-    position: absolute;
-    top: 28px; left: 32px;
-    font-family: var(--mono);
-    font-size: 0.66rem;
-    letter-spacing: 0.1em;
-    color: var(--brand);
-    font-weight: 600;
-    padding: 4px 10px;
-    background: rgba(94, 211, 216, 0.12);
-    border-radius: 100px;
-    z-index: 2;
-  }
   .service.featured .service-number { top: 28px; right: 30px; }
-  .service.featured .service-icon { margin-top: 24px; }
+  .service.featured .service-icon { margin-top: 0; }
 
   /* Responsive updates for AI section and new services grid */
   @media (max-width: 960px) {
@@ -1026,13 +1013,13 @@
   </a>
 
   <ul class="nav-links">
-    <li><a href="#ai">IA &amp; Automação</a></li>
+    <li><a href="#ai">IA</a></li>
     <li><a href="#services">Serviços</a></li>
-    <li><a href="#process">Processo</a></li>
+    <li><a href="#process">Como trabalhamos</a></li>
     <li><a href="#contact">Contato</a></li>
   </ul>
 
-  <a href="#contact" class="nav-cta">Fale conosco</a>
+  <a href="#contact" class="nav-cta">Falar com a gente</a>
   <a href="#contact" class="nav-cta nav-toggle">Contato</a>
 </nav>
 
@@ -1044,27 +1031,26 @@
       <div>
         <div class="eyebrow reveal">
           <span class="eyebrow-dot"></span>
-          <span>AGENTES DE IA · AUTOMAÇÕES · SOFTWARE SOB MEDIDA</span>
+          <span>Desenvolvimento, IA e automações</span>
         </div>
 
         <h1 class="hero-title reveal">
-          Sistemas que <span class="grad">pensam.</span><br/>
-          Automações que <span class="grad">executam.</span>
+          Tecnologia sob medida<br/>pra <span class="grad">tocar o seu negócio.</span>
         </h1>
 
         <p class="hero-sub reveal">
-          Construímos agentes de IA, automações inteligentes e software sob medida que trabalham pelo seu negócio — 24 horas por dia, sem pausar, sem errar, sem dormir.
+          A gente desenvolve sites, aplicativos e sistemas internos — e implementa agentes de IA e automações que cuidam do que costuma tomar o tempo do seu time.
         </p>
 
         <div class="hero-ctas reveal">
           <a href="#contact" class="btn-primary">
-            Iniciar um projeto
+            Falar com a gente
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14M13 5l7 7-7 7"/>
             </svg>
           </a>
           <a href="#services" class="btn-ghost">
-            Ver serviços
+            O que fazemos
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M6 9l6 6 6-6"/>
             </svg>
@@ -1103,12 +1089,12 @@
         </div>
 
         <div class="hero-stats stat-1">
-          <strong>24/7</strong>
-          <span>Atendimento com IA</span>
+          <strong>WhatsApp</strong>
+          <span>Integrações nativas</span>
         </div>
         <div class="hero-stats stat-2">
-          <strong>&lt;3s</strong>
-          <span>Resposta automática</span>
+          <strong>Fortaleza/CE</strong>
+          <span>Atendemos todo o Brasil</span>
         </div>
       </div>
     </div>
@@ -1120,9 +1106,9 @@
       <div class="ai-grid">
         <div class="ai-copy">
           <div class="section-tag reveal">Inteligência Artificial</div>
-          <h2 class="section-title reveal">Agentes de IA que <em>falam, vendem e resolvem</em> pelo seu negócio.</h2>
+          <h2 class="section-title reveal">Agentes de IA pra responder seus clientes e <em>facilitar a rotina do time.</em></h2>
           <p class="section-lead reveal">
-            Treinamos agentes conversacionais sob medida para o seu atendimento, qualificação de leads, suporte pós-venda e operações internas. Eles aprendem a sua marca, seguem o seu tom e se integram ao WhatsApp, Instagram, site e CRMs — enquanto você dorme, vende.
+            A gente configura assistentes que usam a base de conhecimento da sua empresa pra atender no WhatsApp, site ou Instagram. Servem tanto pra tirar dúvidas e agendar horários quanto pra qualificar lead antes de chegar no comercial.
           </p>
 
           <div class="ai-capabilities reveal">
@@ -1131,8 +1117,8 @@
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
               </svg>
               <div>
-                <strong>Atendimento 24/7</strong>
-                <span>WhatsApp, site, Instagram, e-mail</span>
+                <strong>Atendimento automatizado</strong>
+                <span>WhatsApp, site, redes sociais</span>
               </div>
             </div>
             <div class="ai-cap">
@@ -1140,8 +1126,8 @@
                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
               </svg>
               <div>
-                <strong>Qualificação de leads</strong>
-                <span>Filtra, agenda e envia pro time certo</span>
+                <strong>Triagem de leads</strong>
+                <span>Filtra e encaminha pro vendedor certo</span>
               </div>
             </div>
             <div class="ai-cap">
@@ -1149,8 +1135,8 @@
                 <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
               </svg>
               <div>
-                <strong>Automação de tarefas</strong>
-                <span>Emissão de notas, follow-ups, relatórios</span>
+                <strong>Tarefas repetitivas</strong>
+                <span>Cobrança, follow-up, relatórios</span>
               </div>
             </div>
             <div class="ai-cap">
@@ -1159,14 +1145,14 @@
                 <path d="M7 14l4-4 4 4 5-5"/>
               </svg>
               <div>
-                <strong>Análise inteligente</strong>
-                <span>Insights de conversas e vendas</span>
+                <strong>Relatórios e análises</strong>
+                <span>Resumos de conversas e conversão</span>
               </div>
             </div>
           </div>
 
           <a href="#contact" class="btn-primary reveal" style="margin-top: 36px;">
-            Conversar com um especialista
+            Quero entender se faz sentido pra mim
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14M13 5l7 7-7 7"/>
             </svg>
@@ -1187,22 +1173,22 @@
 
           <div class="chat-body">
             <div class="bubble user">
-              <p>Olá! Queria saber o horário de vocês e se conseguem atender neste sábado.</p>
+              <p>Oi, vocês atendem amanhã de manhã?</p>
               <time>14:32</time>
             </div>
 
             <div class="bubble agent">
-              <p>Oi, Lucas! 👋 Estamos online de seg a sex, 9h-18h. No sábado temos atendimento especial das 9h às 13h — posso já reservar um horário pra você?</p>
+              <p>Oi, Lucas! Amanhã temos vagas às 9h, 10h30 e 14h. Qual horário funciona melhor?</p>
               <time>14:32</time>
             </div>
 
             <div class="bubble user">
-              <p>Perfeito, 10h tá ótimo</p>
+              <p>10h30 tá ótimo</p>
               <time>14:33</time>
             </div>
 
             <div class="bubble agent">
-              <p>Agendado! ✓ Acabei de enviar a confirmação no seu e-mail e você recebe um lembrete 1h antes. Mais alguma coisa?</p>
+              <p>Fechado. Já te mandei a confirmação por e-mail e um lembrete vai chegar 1h antes. Precisa de mais alguma coisa?</p>
               <time>14:33</time>
             </div>
 
@@ -1224,15 +1210,16 @@
           <!-- Floating badges -->
           <div class="chat-badge badge-1">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"/>
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
             </svg>
-            <span>Respondeu em 1.8s</span>
+            <span>Dados da sua empresa</span>
           </div>
           <div class="chat-badge badge-2">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
             </svg>
-            <span>Lead qualificado</span>
+            <span>WhatsApp oficial</span>
           </div>
         </div>
       </div>
@@ -1243,14 +1230,13 @@
   <section id="services">
     <div class="container">
       <div class="section-head reveal">
-        <div class="section-tag">Serviços</div>
-        <h2 class="section-title">Uma stack completa — <em>da interface ao backend, do chatbot ao deploy.</em></h2>
-        <p class="section-lead">Desenvolvemos soluções digitais ponta a ponta, combinando desenvolvimento tradicional com inteligência artificial e automações modernas.</p>
+        <div class="section-tag">O que fazemos</div>
+        <h2 class="section-title">Desenvolvimento, <em>automação e IA.</em></h2>
+        <p class="section-lead">Trabalhamos com projetos de software sob medida e também com soluções prontas usando IA e automação. Depende do problema que você precisa resolver.</p>
       </div>
 
       <div class="services-grid">
         <article class="service reveal featured">
-          <div class="service-badge">DESTAQUE</div>
           <div class="service-number">01</div>
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1262,11 +1248,10 @@
             </svg>
           </div>
           <h3>Agentes de IA</h3>
-          <p>Assistentes inteligentes treinados com a sua base de conhecimento para atender clientes, qualificar leads e automatizar conversas no WhatsApp, site e redes sociais.</p>
+          <p>Assistentes configurados com a sua base de conhecimento pra responder clientes no WhatsApp, site e redes, seguindo o tom da sua empresa.</p>
         </article>
 
         <article class="service reveal featured">
-          <div class="service-badge">DESTAQUE</div>
           <div class="service-number">02</div>
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1278,7 +1263,7 @@
             </svg>
           </div>
           <h3>Automações &amp; Workflows</h3>
-          <p>Conectamos suas ferramentas e automatizamos processos repetitivos — follow-ups, emissão de documentos, sincronização de dados, relatórios. Sua operação rodando sozinha.</p>
+          <p>Conectamos ferramentas que você já usa pra automatizar tarefas chatas: follow-ups, emissão de documentos, sincronização entre sistemas.</p>
         </article>
 
         <article class="service reveal">
@@ -1291,7 +1276,7 @@
             </svg>
           </div>
           <h3>Software sob medida</h3>
-          <p>Sistemas corporativos, ERPs, CRMs e plataformas internas que se moldam ao seu processo — não o contrário. Código limpo, escalável e documentado.</p>
+          <p>Sistemas internos, ERPs, CRMs e plataformas pensadas pro jeito que sua empresa trabalha. Nada de adaptar o processo ao software.</p>
         </article>
 
         <article class="service reveal">
@@ -1304,7 +1289,7 @@
             </svg>
           </div>
           <h3>Sites &amp; Landing Pages</h3>
-          <p>Sites institucionais, portfólios e landing pages que convertem. Otimizados para performance, SEO e experiência do usuário em qualquer tela.</p>
+          <p>Do site institucional à landing de campanha. Feitos pra carregar rápido, aparecer bem no Google e funcionar em qualquer tela.</p>
         </article>
 
         <article class="service reveal">
@@ -1316,7 +1301,7 @@
             </svg>
           </div>
           <h3>Aplicativos Mobile</h3>
-          <p>Apps nativos e híbridos para iOS e Android. Interfaces intuitivas, sincronização em tempo real e integração com qualquer backend — sem complicação.</p>
+          <p>Apps pra iOS e Android. Desde MVPs pra validar uma ideia até aplicativos completos, com backend e integrações.</p>
         </article>
 
         <article class="service reveal">
@@ -1329,7 +1314,7 @@
             </svg>
           </div>
           <h3>Integrações &amp; APIs</h3>
-          <p>Conectamos seus sistemas: pagamentos, logística, WhatsApp, ERPs, modelos de IA. Criamos APIs robustas ou integramos as que você já usa de forma limpa.</p>
+          <p>Seus sistemas conversando entre si: ERP com e-commerce, WhatsApp com CRM, planilha com banco de dados. A gente liga os pontos.</p>
         </article>
       </div>
     </div>
@@ -1340,31 +1325,31 @@
     <div class="process">
       <div class="container">
         <div class="section-head reveal" style="max-width: 680px;">
-          <div class="section-tag">Processo</div>
-          <h2 class="section-title">Clareza do briefing <em>ao deploy.</em></h2>
-          <p class="section-lead">Trabalhamos em ciclos curtos e transparentes. Você acompanha cada decisão, cada avanço, cada entrega.</p>
+          <div class="section-tag">Como a gente trabalha</div>
+          <h2 class="section-title">Um jeito simples <em>de tocar o projeto.</em></h2>
+          <p class="section-lead">Nada de fluxo mirabolante. A gente conversa, entende, propõe, desenvolve e acompanha depois que entrega.</p>
         </div>
 
         <div class="steps">
           <div class="step reveal">
-            <div class="step-num">01 · DESCOBERTA</div>
-            <h4>Entender o problema</h4>
-            <p>Conversas, benchmarks e mapeamento do que realmente importa para o seu negócio.</p>
+            <div class="step-num">01</div>
+            <h4>Conversa inicial</h4>
+            <p>Uma reunião pra entender o que você precisa, o contexto e os prazos que fazem sentido.</p>
           </div>
           <div class="step reveal">
-            <div class="step-num">02 · DESENHO</div>
-            <h4>Planejar a solução</h4>
-            <p>Arquitetura, fluxos e protótipos validados antes de escrever qualquer linha de código.</p>
+            <div class="step-num">02</div>
+            <h4>Proposta</h4>
+            <p>A gente volta com escopo, cronograma e valor. Você decide se faz sentido seguir.</p>
           </div>
           <div class="step reveal">
-            <div class="step-num">03 · CONSTRUÇÃO</div>
-            <h4>Desenvolver em ciclos</h4>
-            <p>Sprints com entregas frequentes, testes e feedback contínuo — sem surpresas no final.</p>
+            <div class="step-num">03</div>
+            <h4>Desenvolvimento</h4>
+            <p>Trabalhamos por entregas, com reuniões quinzenais pra você acompanhar e dar retorno.</p>
           </div>
           <div class="step reveal">
-            <div class="step-num">04 · EVOLUÇÃO</div>
-            <h4>Suporte & crescimento</h4>
-            <p>Deploy, monitoramento e melhorias contínuas. Seu produto vivo, atualizado e confiável.</p>
+            <div class="step-num">04</div>
+            <h4>Pós-entrega</h4>
+            <p>Suporte, ajustes e melhorias depois que o projeto está no ar. Não sumimos após assinar o termo.</p>
           </div>
         </div>
       </div>
@@ -1376,9 +1361,9 @@
     <div class="container">
       <div class="why-grid">
         <div>
-          <div class="section-tag">Por que Betel</div>
-          <h2 class="section-title">Parceria técnica com <em>mentalidade AI-first.</em></h2>
-          <p class="section-lead">Mais do que fornecedor: atuamos como um time de tecnologia dentro da sua empresa — combinando desenvolvimento sólido com as possibilidades que IA e automação abrem hoje.</p>
+          <div class="section-tag">Por que a Betel</div>
+          <h2 class="section-title">Você fala com quem <em>vai desenvolver.</em></h2>
+          <p class="section-lead">Sem intermediário, sem gerente de contas, sem telefone sem fim. Projetos pequenos e médios tocados direto por quem programa — o que torna tudo mais rápido e honesto.</p>
         </div>
 
         <div class="why-list">
@@ -1389,8 +1374,8 @@
               </svg>
             </div>
             <div>
-              <h4>IA aplicada de verdade</h4>
-              <p>Não é hype — é tecnologia que reduz custo operacional, acelera atendimento e libera seu time do trabalho repetitivo.</p>
+              <h4>Time enxuto, resposta rápida</h4>
+              <p>Sem burocracia: você manda uma mensagem e a gente responde. Na maioria dos casos no mesmo dia.</p>
             </div>
           </div>
 
@@ -1401,8 +1386,8 @@
               </svg>
             </div>
             <div>
-              <h4>Código que escala</h4>
-              <p>Arquitetura preparada para crescer com o seu negócio — do MVP aos milhões de requisições.</p>
+              <h4>Proposta clara, valor fechado</h4>
+              <p>Você sabe o que está contratando e quanto vai pagar antes de começar. Sem cobrança extra no meio do caminho.</p>
             </div>
           </div>
 
@@ -1413,8 +1398,8 @@
               </svg>
             </div>
             <div>
-              <h4>Comunicação transparente</h4>
-              <p>Você sabe exatamente o que estamos fazendo, por quê, e o que vem depois. Sempre.</p>
+              <h4>Código que dura</h4>
+              <p>A gente escreve pensando em quem vai dar manutenção depois. Se amanhã você trocar de fornecedor, não te deixamos na mão.</p>
             </div>
           </div>
 
@@ -1425,8 +1410,8 @@
               </svg>
             </div>
             <div>
-              <h4>Suporte que não desaparece</h4>
-              <p>Produto entregue não é projeto encerrado. Acompanhamento, evolução e ajustes continuam.</p>
+              <h4>Continuamos depois do lançamento</h4>
+              <p>Bug, dúvida, pequeno ajuste, nova integração. A gente segue por perto conforme o projeto evolui.</p>
             </div>
           </div>
         </div>
@@ -1437,8 +1422,8 @@
   <!-- ─── CTA ─── -->
   <section class="cta" id="contact">
     <div class="container reveal">
-      <h2>Tem uma ideia? <span class="grad">Vamos construir juntos.</span></h2>
-      <p>Conte o que você precisa — respondemos em até 24h com uma proposta inicial, sem compromisso.</p>
+      <h2>Tem um projeto em mente?<br/><span class="grad">Manda a gente dar uma olhada.</span></h2>
+      <p>Conte o que você precisa por e-mail ou WhatsApp. Geralmente a gente responde no mesmo dia.</p>
       <div class="hero-ctas" style="justify-content: center;">
         <a href="mailto:contato@betelsolutions.com" class="btn-primary">
           contato@betelsolutions.com
@@ -1465,7 +1450,7 @@
         <span class="brand-mark footer-mark"><svg viewBox="0 0 1024 1024"><use href="#betel-logo"/></svg></span>
         Betel Solutions
       </div>
-      <p class="footer-tag">Excelência Digital · Sistemas Conectados. Desenvolvimento de software, sites e aplicativos para empresas que querem crescer.</p>
+      <p class="footer-tag">Desenvolvimento, IA e automação sob medida. Com sede em Fortaleza/CE, atendendo clientes em todo o Brasil.</p>
     </div>
 
     <div class="footer-col">
@@ -1495,8 +1480,8 @@
   </div>
 
   <div class="footer-bottom">
-    <span>© 2026 BETEL SOLUTIONS · TODOS OS DIREITOS RESERVADOS</span>
-    <span>FEITO NO BRASIL</span>
+    <span>© 2026 Betel Solutions</span>
+    <span>CNPJ a preencher · Fortaleza, CE</span>
   </div>
 </footer>
 
