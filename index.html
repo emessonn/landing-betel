@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Betel Solutions — Excelência Digital · Sistemas Conectados</title>
 <meta name="description" content="Desenvolvimento de softwares, sites e aplicativos sob medida. Sistemas conectados, excelência digital." />
-<link rel="icon" type="image/svg+xml" href="logo1.svg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -693,6 +692,309 @@
     transform-origin: 250px 250px;
   }
 
+  /* ─── AI Section ─── */
+  .ai-section {
+    background: linear-gradient(180deg, var(--bg) 0%, #e8f1f7 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .ai-section::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 900px; height: 900px;
+    background: radial-gradient(circle, rgba(94, 211, 216, 0.15), transparent 60%);
+    pointer-events: none;
+  }
+
+  .ai-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+  }
+
+  .ai-capabilities {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 40px;
+  }
+  .ai-cap {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    backdrop-filter: blur(6px);
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .ai-cap:hover {
+    transform: translateY(-3px);
+    border-color: var(--brand-light);
+  }
+  .ai-cap svg {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    color: var(--brand);
+    margin-top: 2px;
+  }
+  .ai-cap strong {
+    display: block;
+    font-family: var(--display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 3px;
+  }
+  .ai-cap span {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  /* Chat mockup */
+  .chat-mockup {
+    position: relative;
+    background: white;
+    border-radius: 24px;
+    box-shadow:
+      0 30px 80px rgba(11, 58, 91, 0.18),
+      0 10px 30px rgba(11, 58, 91, 0.08);
+    overflow: visible;
+    max-width: 440px;
+    justify-self: center;
+    width: 100%;
+  }
+
+  .chat-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 22px;
+    border-bottom: 1px solid var(--line);
+  }
+  .chat-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e8f6f8, #d5ecf2);
+    display: grid;
+    place-items: center;
+    padding: 6px;
+    position: relative;
+  }
+  .chat-avatar svg { width: 100%; height: 100%; }
+  .chat-header strong {
+    display: block;
+    font-family: var(--display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .chat-header > div > span {
+    font-size: 0.78rem;
+    color: var(--ink-mute);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .online-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2); }
+    50% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+  }
+
+  .chat-body {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: #f7fafc;
+    max-height: 400px;
+  }
+
+  .bubble {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    animation: bubble-in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+    position: relative;
+  }
+  .bubble p { margin: 0; }
+  .bubble time {
+    display: block;
+    font-size: 0.68rem;
+    margin-top: 4px;
+    opacity: 0.65;
+    font-family: var(--mono);
+  }
+  .bubble.user {
+    align-self: flex-end;
+    background: white;
+    color: var(--ink);
+    border-bottom-right-radius: 4px;
+    border: 1px solid var(--line);
+    animation-delay: 0.1s;
+  }
+  .bubble.agent {
+    align-self: flex-start;
+    background: var(--grad);
+    color: white;
+    border-bottom-left-radius: 4px;
+    animation-delay: 0.3s;
+    box-shadow: 0 4px 14px rgba(31, 109, 158, 0.25);
+  }
+  .bubble.user:nth-of-type(3) { animation-delay: 0.9s; }
+  .bubble.agent:nth-of-type(4) { animation-delay: 1.1s; }
+
+  @keyframes bubble-in {
+    from { opacity: 0; transform: translateY(10px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .bubble.typing {
+    background: white;
+    border: 1px solid var(--line);
+    padding: 14px 18px;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+    display: flex;
+    gap: 4px;
+    animation-delay: 1.6s;
+  }
+  .bubble.typing span {
+    width: 6px; height: 6px;
+    background: var(--brand-mid);
+    border-radius: 50%;
+    animation: typing-bounce 1.2s ease-in-out infinite;
+  }
+  .bubble.typing span:nth-child(2) { animation-delay: 0.15s; }
+  .bubble.typing span:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes typing-bounce {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-6px); opacity: 1; }
+  }
+
+  .chat-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    border-top: 1px solid var(--line);
+    background: white;
+    border-radius: 0 0 24px 24px;
+  }
+  .chat-input-placeholder {
+    flex: 1;
+    padding: 10px 14px;
+    background: #f0f5f8;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    color: var(--ink-mute);
+  }
+  .chat-send {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--grad);
+    display: grid;
+    place-items: center;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .chat-send:hover { transform: scale(1.08); }
+  .chat-send svg { width: 16px; height: 16px; }
+
+  /* Floating badges around chat */
+  .chat-badge {
+    position: absolute;
+    background: white;
+    padding: 10px 14px;
+    border-radius: 100px;
+    box-shadow: 0 10px 30px rgba(11, 58, 91, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--display);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  .chat-badge svg {
+    width: 16px; height: 16px;
+    color: var(--brand-mid);
+    stroke-width: 2.5;
+  }
+  .badge-1 {
+    top: 60px; left: -30px;
+    animation: float 6s ease-in-out infinite;
+  }
+  .badge-2 {
+    bottom: 80px; right: -40px;
+    animation: float 6s ease-in-out infinite 3s;
+    color: var(--brand-deep);
+  }
+  .badge-2 svg { color: #f59e0b; fill: #fef3c7; }
+
+  /* ─── Services grid: 3 columns (6 cards) with featured styling ─── */
+  #services .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #services .service { padding: 40px 32px; }
+
+  .service.featured {
+    background: linear-gradient(180deg, white 0%, #eefaff 100%);
+  }
+  .service.featured::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--grad);
+    z-index: 2;
+  }
+  .service-badge {
+    position: absolute;
+    top: 28px; left: 32px;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    color: var(--brand);
+    font-weight: 600;
+    padding: 4px 10px;
+    background: rgba(94, 211, 216, 0.12);
+    border-radius: 100px;
+    z-index: 2;
+  }
+  .service.featured .service-number { top: 28px; right: 30px; }
+  .service.featured .service-icon { margin-top: 24px; }
+
+  /* Responsive updates for AI section and new services grid */
+  @media (max-width: 960px) {
+    .ai-grid { grid-template-columns: 1fr; gap: 60px; }
+    .ai-capabilities { grid-template-columns: 1fr; }
+    .chat-mockup { max-width: 420px; }
+    .badge-1 { left: -10px; top: 40px; }
+    .badge-2 { right: -10px; bottom: 60px; }
+    #services .services-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 620px) {
+    #services .services-grid { grid-template-columns: 1fr; }
+    .badge-1, .badge-2 { display: none; }
+  }
+
 </style>
 </head>
 <body>
@@ -724,9 +1026,9 @@
   </a>
 
   <ul class="nav-links">
+    <li><a href="#ai">IA &amp; Automação</a></li>
     <li><a href="#services">Serviços</a></li>
     <li><a href="#process">Processo</a></li>
-    <li><a href="#why">Por que nós</a></li>
     <li><a href="#contact">Contato</a></li>
   </ul>
 
@@ -742,15 +1044,16 @@
       <div>
         <div class="eyebrow reveal">
           <span class="eyebrow-dot"></span>
-          <span>DISPONÍVEL PARA NOVOS PROJETOS · 2026</span>
+          <span>AGENTES DE IA · AUTOMAÇÕES · SOFTWARE SOB MEDIDA</span>
         </div>
 
         <h1 class="hero-title reveal">
-          Construímos <span class="grad">sistemas<br/>conectados</span> que <em>fazem seu negócio crescer.</em>
+          Sistemas que <span class="grad">pensam.</span><br/>
+          Automações que <span class="grad">executam.</span>
         </h1>
 
         <p class="hero-sub reveal">
-          Software sob medida, sites performáticos e aplicativos que realmente entregam resultado. Tecnologia pensada para pessoas — com a excelência que o seu produto merece.
+          Construímos agentes de IA, automações inteligentes e software sob medida que trabalham pelo seu negócio — 24 horas por dia, sem pausar, sem errar, sem dormir.
         </p>
 
         <div class="hero-ctas reveal">
@@ -800,12 +1103,137 @@
         </div>
 
         <div class="hero-stats stat-1">
-          <strong>100%</strong>
-          <span>Código sob medida</span>
+          <strong>24/7</strong>
+          <span>Atendimento com IA</span>
         </div>
         <div class="hero-stats stat-2">
-          <strong>24/7</strong>
-          <span>Suporte dedicado</span>
+          <strong>&lt;3s</strong>
+          <span>Resposta automática</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── AI SPOTLIGHT ─── -->
+  <section id="ai" class="ai-section">
+    <div class="container">
+      <div class="ai-grid">
+        <div class="ai-copy">
+          <div class="section-tag reveal">Inteligência Artificial</div>
+          <h2 class="section-title reveal">Agentes de IA que <em>falam, vendem e resolvem</em> pelo seu negócio.</h2>
+          <p class="section-lead reveal">
+            Treinamos agentes conversacionais sob medida para o seu atendimento, qualificação de leads, suporte pós-venda e operações internas. Eles aprendem a sua marca, seguem o seu tom e se integram ao WhatsApp, Instagram, site e CRMs — enquanto você dorme, vende.
+          </p>
+
+          <div class="ai-capabilities reveal">
+            <div class="ai-cap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+              <div>
+                <strong>Atendimento 24/7</strong>
+                <span>WhatsApp, site, Instagram, e-mail</span>
+              </div>
+            </div>
+            <div class="ai-cap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+              <div>
+                <strong>Qualificação de leads</strong>
+                <span>Filtra, agenda e envia pro time certo</span>
+              </div>
+            </div>
+            <div class="ai-cap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+              </svg>
+              <div>
+                <strong>Automação de tarefas</strong>
+                <span>Emissão de notas, follow-ups, relatórios</span>
+              </div>
+            </div>
+            <div class="ai-cap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3v18h18"/>
+                <path d="M7 14l4-4 4 4 5-5"/>
+              </svg>
+              <div>
+                <strong>Análise inteligente</strong>
+                <span>Insights de conversas e vendas</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="#contact" class="btn-primary reveal" style="margin-top: 36px;">
+            Conversar com um especialista
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Chat mockup — visual da seção -->
+        <div class="chat-mockup reveal">
+          <div class="chat-header">
+            <span class="chat-avatar">
+              <svg viewBox="0 0 1024 1024"><use href="#betel-logo"/></svg>
+            </span>
+            <div>
+              <strong>Agente Betel</strong>
+              <span><span class="online-dot"></span> Online · IA</span>
+            </div>
+          </div>
+
+          <div class="chat-body">
+            <div class="bubble user">
+              <p>Olá! Queria saber o horário de vocês e se conseguem atender neste sábado.</p>
+              <time>14:32</time>
+            </div>
+
+            <div class="bubble agent">
+              <p>Oi, Lucas! 👋 Estamos online de seg a sex, 9h-18h. No sábado temos atendimento especial das 9h às 13h — posso já reservar um horário pra você?</p>
+              <time>14:32</time>
+            </div>
+
+            <div class="bubble user">
+              <p>Perfeito, 10h tá ótimo</p>
+              <time>14:33</time>
+            </div>
+
+            <div class="bubble agent">
+              <p>Agendado! ✓ Acabei de enviar a confirmação no seu e-mail e você recebe um lembrete 1h antes. Mais alguma coisa?</p>
+              <time>14:33</time>
+            </div>
+
+            <div class="bubble typing">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+
+          <div class="chat-footer">
+            <span class="chat-input-placeholder">Digite uma mensagem...</span>
+            <span class="chat-send">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"/>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+              </svg>
+            </span>
+          </div>
+
+          <!-- Floating badges -->
+          <div class="chat-badge badge-1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Respondeu em 1.8s</span>
+          </div>
+          <div class="chat-badge badge-2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <span>Lead qualificado</span>
+          </div>
         </div>
       </div>
     </div>
@@ -816,13 +1244,45 @@
     <div class="container">
       <div class="section-head reveal">
         <div class="section-tag">Serviços</div>
-        <h2 class="section-title">Tudo o que sua empresa precisa <em>num só lugar.</em></h2>
-        <p class="section-lead">Da ideia ao deploy: desenvolvemos soluções digitais ponta a ponta, com arquitetura sólida, design cuidadoso e performance de verdade.</p>
+        <h2 class="section-title">Uma stack completa — <em>da interface ao backend, do chatbot ao deploy.</em></h2>
+        <p class="section-lead">Desenvolvemos soluções digitais ponta a ponta, combinando desenvolvimento tradicional com inteligência artificial e automações modernas.</p>
       </div>
 
       <div class="services-grid">
-        <article class="service reveal">
+        <article class="service reveal featured">
+          <div class="service-badge">DESTAQUE</div>
           <div class="service-number">01</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <circle cx="12" cy="5" r="2"/>
+              <path d="M12 7v4"/>
+              <line x1="8" y1="16" x2="8" y2="16"/>
+              <line x1="16" y1="16" x2="16" y2="16"/>
+            </svg>
+          </div>
+          <h3>Agentes de IA</h3>
+          <p>Assistentes inteligentes treinados com a sua base de conhecimento para atender clientes, qualificar leads e automatizar conversas no WhatsApp, site e redes sociais.</p>
+        </article>
+
+        <article class="service reveal featured">
+          <div class="service-badge">DESTAQUE</div>
+          <div class="service-number">02</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"/>
+              <circle cx="6" cy="12" r="3"/>
+              <circle cx="18" cy="19" r="3"/>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+            </svg>
+          </div>
+          <h3>Automações &amp; Workflows</h3>
+          <p>Conectamos suas ferramentas e automatizamos processos repetitivos — follow-ups, emissão de documentos, sincronização de dados, relatórios. Sua operação rodando sozinha.</p>
+        </article>
+
+        <article class="service reveal">
+          <div class="service-number">03</div>
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="8 9 3 14 8 19"/>
@@ -835,7 +1295,7 @@
         </article>
 
         <article class="service reveal">
-          <div class="service-number">02</div>
+          <div class="service-number">04</div>
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
@@ -843,12 +1303,12 @@
               <line x1="12" y1="17" x2="12" y2="21"/>
             </svg>
           </div>
-          <h3>Sites & Landing Pages</h3>
+          <h3>Sites &amp; Landing Pages</h3>
           <p>Sites institucionais, portfólios e landing pages que convertem. Otimizados para performance, SEO e experiência do usuário em qualquer tela.</p>
         </article>
 
         <article class="service reveal">
-          <div class="service-number">03</div>
+          <div class="service-number">05</div>
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
@@ -860,7 +1320,7 @@
         </article>
 
         <article class="service reveal">
-          <div class="service-number">04</div>
+          <div class="service-number">06</div>
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
@@ -868,8 +1328,8 @@
               <line x1="12" y1="22.08" x2="12" y2="12"/>
             </svg>
           </div>
-          <h3>Integrações & APIs</h3>
-          <p>Conectamos seus sistemas: pagamentos, logística, WhatsApp, ERPs, IA. Criamos APIs robustas ou integramos as que você já usa de forma limpa.</p>
+          <h3>Integrações &amp; APIs</h3>
+          <p>Conectamos seus sistemas: pagamentos, logística, WhatsApp, ERPs, modelos de IA. Criamos APIs robustas ou integramos as que você já usa de forma limpa.</p>
         </article>
       </div>
     </div>
@@ -915,13 +1375,25 @@
   <section id="why">
     <div class="container">
       <div class="why-grid">
-        <div class="reveal">
+        <div>
           <div class="section-tag">Por que Betel</div>
-          <h2 class="section-title">Parceria técnica, <em>não apenas entrega.</em></h2>
-          <p class="section-lead">Mais do que fornecedor: atuamos como um time de tecnologia dentro da sua empresa — pensando estratégia, não só executando tarefas.</p>
+          <h2 class="section-title">Parceria técnica com <em>mentalidade AI-first.</em></h2>
+          <p class="section-lead">Mais do que fornecedor: atuamos como um time de tecnologia dentro da sua empresa — combinando desenvolvimento sólido com as possibilidades que IA e automação abrem hoje.</p>
         </div>
 
         <div class="why-list">
+          <div class="why-item reveal">
+            <div class="why-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div>
+              <h4>IA aplicada de verdade</h4>
+              <p>Não é hype — é tecnologia que reduz custo operacional, acelera atendimento e libera seu time do trabalho repetitivo.</p>
+            </div>
+          </div>
+
           <div class="why-item reveal">
             <div class="why-check">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -953,18 +1425,6 @@
               </svg>
             </div>
             <div>
-              <h4>Prazos realistas, entregas reais</h4>
-              <p>Estimativas honestas e compromisso com o deadline. Sem promessas inflacionadas.</p>
-            </div>
-          </div>
-
-          <div class="why-item reveal">
-            <div class="why-check">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-            </div>
-            <div>
               <h4>Suporte que não desaparece</h4>
               <p>Produto entregue não é projeto encerrado. Acompanhamento, evolução e ajustes continuam.</p>
             </div>
@@ -980,13 +1440,13 @@
       <h2>Tem uma ideia? <span class="grad">Vamos construir juntos.</span></h2>
       <p>Conte o que você precisa — respondemos em até 24h com uma proposta inicial, sem compromisso.</p>
       <div class="hero-ctas" style="justify-content: center;">
-        <a href="mailto:betelsolutions@gmail.com" class="btn-primary">
-          betelsolutions@gmail.com
+        <a href="mailto:contato@betelsolutions.com" class="btn-primary">
+          contato@betelsolutions.com
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14M13 5l7 7-7 7"/>
           </svg>
         </a>
-        <a href="https://wa.me/5585991502075?text=Olá, gostaria de saber mais sobre os serviços da Betel Solutions!" class="btn-ghost">
+        <a href="https://wa.me/" class="btn-ghost">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
           </svg>
@@ -1010,14 +1470,16 @@
 
     <div class="footer-col">
       <h5>Serviços</h5>
+      <a href="#ai">Agentes de IA</a>
+      <a href="#ai">Automações</a>
       <a href="#services">Software sob medida</a>
-      <a href="#services">Sites & Landing</a>
-      <a href="#services">Aplicativos</a>
+      <a href="#services">Sites &amp; Apps</a>
       <a href="#services">Integrações</a>
     </div>
 
     <div class="footer-col">
       <h5>Empresa</h5>
+      <a href="#ai">IA &amp; Automação</a>
       <a href="#process">Processo</a>
       <a href="#why">Por que nós</a>
       <a href="#contact">Contato</a>
@@ -1025,12 +1487,12 @@
 
     <div class="footer-col">
       <h5>Contato</h5>
-      <a href="mailto:betelsolutions@gmail.com">betelsolutions@gmail.com</a>
-      <a href="https://wa.me/5585991502075?text=Olá, gostaria de saber mais sobre os serviços da Betel Solutions!">WhatsApp</a>
+      <a href="mailto:contato@betelsolutions.com">contato@betelsolutions.com</a>
+      <a href="https://wa.me/">WhatsApp</a>
       <a href="#">LinkedIn</a>
-      <a href="https://www.instagram.com/betel.solutions_">Instagram</a>
+      <a href="#">Instagram</a>
     </div>
-  </div>  
+  </div>
 
   <div class="footer-bottom">
     <span>© 2026 BETEL SOLUTIONS · TODOS OS DIREITOS RESERVADOS</span>
