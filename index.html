@@ -143,13 +143,15 @@
     text-decoration: none;
     font-weight: 500;
     font-size: 0.88rem;
-    transition: all 0.3s;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     border: 1px solid var(--ink);
   }
-  .nav-cta:hover {
-    background: var(--brand-deep);
-    transform: translateY(-1px);
-    box-shadow: 0 8px 24px rgba(11,58,91,0.25);
+  @media (hover: hover) {
+    .nav-cta:hover {
+      background: var(--brand-deep);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(11,58,91,0.25);
+    }
   }
 
   .nav-toggle { display: none; }
@@ -212,7 +214,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    display: inline-block;
+    /* display: inline-block; */
   }
   h1.hero-title em {
     font-style: normal;
@@ -616,7 +618,7 @@
   /* ─── Responsive ─── */
   @media (max-width: 960px) {
     nav { padding: 16px 24px; }
-    nav.scrolled { padding: 12px 24px; }
+    nav.scrolled { padding: 16px 24px; }
     .nav-links { display: none; }
     .nav-cta { display: none; }
     .nav-toggle { display: inline-flex; }
@@ -1036,11 +1038,11 @@
         </div>
 
         <h1 class="hero-title reveal">
-          Tecnologia sob medida<br/>pra <span class="grad">tocar o seu negócio.</span>
+          Tecnologia de alto nível<br/>para <span class="grad">escalar o seu negócio.</span>
         </h1>
 
         <p class="hero-sub reveal">
-          A gente desenvolve sites, aplicativos e sistemas internos — e implementa agentes de IA e automações que cuidam do que costuma tomar o tempo do seu time.
+          Automatizamos o atendimento da sua empresa com agentes de Inteligência Artificial e criamos automações que eliminam o trabalho repetitivo. Também desenvolvemos sistemas internos, sites e aplicativos sob medida para a sua operação.
         </p>
 
         <div class="hero-ctas reveal">
